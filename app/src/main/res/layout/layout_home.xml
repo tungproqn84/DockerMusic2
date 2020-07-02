@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_above="@+id/scrollview"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbarHome"
+        android:elevation="1dp"
+        android:theme="@style/AppTheme.BottomAppBar">
+        <LinearLayout
+            android:weightSum="12"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+            <TextView
+                android:id="@+id/logo"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Docker Music"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="match_parent" />
+            <ImageView
+                android:id="@+id/btnsearch"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingRight="10dp"
+                android:src="@drawable/search" />
+        </LinearLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout"
+        app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+        android:layout_width="match_parent"
+        app:tabTextColor="#000000"
+        android:layout_above="@+id/scrollview"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#0033FF"
+        android:background="#CCFFFF"
+        android:layout_height="wrap_content">
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trang chủ"
+            android:icon="@drawable/home"/>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabAlbum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Album"
+            android:icon="@drawable/album"/>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BXH"
+            android:icon="@drawable/charts"/>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chủ đề"
+            android:icon="@drawable/category"/>
+    </com.google.android.material.tabs.TabLayout>
+       <ScrollView
+           android:background="@drawable/background_custom"
+           android:id="@+id/scrollview"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <LinearLayout
+               android:layout_alignParentTop="true"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+                   <ImageView
+                       android:id="@+id/slideshow"
+                       android:layout_width="match_parent"
+                       android:src="@drawable/banner"
+                       android:layout_height="100dp" />
+
+                       <TextView
+                           android:id="@+id/tvAlbum"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingLeft="20dp"
+                           android:textColor="#0000EE"
+                           android:paddingTop="20dp"
+                           android:text="ALBUM HOT"
+                           android:textSize="20sp"
+                           android:textStyle="bold"/>
+                       <View
+                           android:layout_width="match_parent"
+                           android:layout_margin="10dp"
+                           android:layout_height="1dp"
+                           android:background="#8B8B83"/>
+                       <androidx.recyclerview.widget.RecyclerView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:id="@+id/recyclerAblumHot"/>
+                       <TextView
+                           android:id="@+id/tvCategoryHot"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingLeft="20dp"
+                           android:textColor="#0000EE"
+                           android:paddingTop="20dp"
+                           android:text="THỂ LOẠI HOT"
+                           android:textSize="20sp"
+                           android:textStyle="bold"/>
+                       <View
+                           android:layout_width="match_parent"
+                           android:layout_margin="10dp"
+                           android:layout_height="1dp"
+                           android:background="#8B8B83"/>
+                       <androidx.recyclerview.widget.RecyclerView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:id="@+id/recyclerCategoryHot"/>
+                       <TextView
+                           android:id="@+id/tvSong"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingLeft="20dp"
+                           android:paddingTop="20dp"
+                           android:textColor="#0000EE"
+                           android:text="BÀI HÁT HOT"
+                           android:textSize="20sp"
+                           android:textStyle="bold" />
+                       <View
+                           android:layout_width="match_parent"
+                           android:layout_margin="10dp"
+                           android:layout_height="1dp"
+                           android:background="#8B8B83"/>
+                       <androidx.recyclerview.widget.RecyclerView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:paddingTop="10dp"
+                           android:paddingBottom="10dp"
+                           android:id="@+id/recyclersongHot" />
+                   </LinearLayout>
+
+       </ScrollView>
+
+    </LinearLayout>
+

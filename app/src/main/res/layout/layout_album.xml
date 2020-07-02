@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Activity.AlbumMP3">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:id="@+id/imageAlbum"/>
+        <TextView
+            android:id="@+id/nameAlbum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ai Là Người Thương Em"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/nameSingerAlbum"
+            android:layout_width="match_parent"
+            android:gravity="left"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameSinger"
+            android:text="Thanh Hưng"
+            android:paddingLeft="10dp"
+            android:textColor="#666666"/>
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.appbar.MaterialToolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/toolbarHome"
+                android:elevation="1dp"
+                android:theme="@style/AppTheme.BottomAppBar">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Docker Music"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+
+            </com.google.android.material.appbar.MaterialToolbar>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tablayout"
+                app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+                android:layout_width="match_parent"
+                app:tabTextColor="#000000"
+                app:tabSelectedTextColor="#0033FF"
+                android:layout_height="wrap_content">
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trang chủ"
+                    android:icon="@drawable/home"/>
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabAlbum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Album"
+                    android:icon="@drawable/album"/>
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BXH"
+                    android:icon="@drawable/charts"/>
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tôi"
+                    android:icon="@drawable/category"/>
+            </com.google.android.material.tabs.TabLayout>
+            <ViewFlipper
+                android:id="@+id/bannerflipper"
+                android:layout_width="match_parent"
+                android:layout_marginTop="50dp"
+                android:layout_height="100dp" >
+
+                <ImageView
+                    android:id="@+id/slideshow"
+                    android:layout_width="match_parent"
+                    android:src="@drawable/background"
+                    android:layout_height="match_parent" />
+            </ViewFlipper>
+            <TextView
+                android:id="@+id/tvAlbum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="ALBUM HOT"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerBXH"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

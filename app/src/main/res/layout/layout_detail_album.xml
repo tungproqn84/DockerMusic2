@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Activity.AlbumMP3">
+    <androidx.appcompat.widget.Toolbar
+        android:background="#66FFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/btnback"
+
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back"
+            android:layout_marginLeft="20dp"/>
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/imageAlbumDetail"/>
+        <TextView
+            android:id="@+id/nameAlbumDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ai Là Người Thương Em"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/nameSingerAlbum"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameSingerDetail"
+            android:text="abcd"
+            android:paddingLeft="10dp"
+            android:textColor="#666666"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="50dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerAblumDetail" />
+    <TextView
+        android:id="@+id/noresult"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvkeyword"
+        android:text="Không tìm thấy kết quả"
+        android:textColor="#3399FF"
+        android:gravity="center"
+        android:visibility="gone"/>
+</LinearLayout>
