@@ -6,16 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="12"
+    android:background="@drawable/background_play"
     tools:context=".Activity.PlayMP3">
     <androidx.appcompat.widget.Toolbar
-        android:background="#66FFFF"
+        android:background="#33CCCC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/btnback"
             android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_height="20dp"
             android:src="@drawable/back"
             android:layout_marginLeft="20dp"/>
     </androidx.appcompat.widget.Toolbar>

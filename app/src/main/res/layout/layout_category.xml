@@ -12,18 +12,15 @@
         android:padding="10dp"
         />
 
-    <View
-        android:padding="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="#F0F8FF" />
     <TextView
-        android:padding="10dp"
+        android:layout_margin="10dp"
         android:id="@+id/nameCategory"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:textColor="#000"
+        android:textColor="#ffff"
         android:text="Nhạc Trẻ"
+        android:background="#924774CD"
         android:textSize="20sp"
         android:gravity="center"/>
+
 </RelativeLayout>

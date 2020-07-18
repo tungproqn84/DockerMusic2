@@ -48,7 +48,7 @@ public class CategoryActivity extends AppCompatActivity {
             try {
                 nameCategory.setText(intent.getStringExtra("name"));
                 int id= intent.getIntExtra("id",0);
-                String url="http://192.168.43.8/api/category/"+id;
+                String url=constant.urlCategory+id;
 
                 Ion.with(CategoryActivity.this)
                         .load(url)

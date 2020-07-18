@@ -17,7 +17,6 @@ import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 import java.util.ArrayList;
-import java.util.List;
 public class SearchActivity extends AppCompatActivity {
     private RecyclerView recyclerViewSearch;
     private TextView tvkeyword, noresult;
@@ -44,49 +43,39 @@ public class SearchActivity extends AppCompatActivity {
 
     private void getResultSearch() {
         keywordSearch.setVisibility(View.VISIBLE);
-        btnsearch.setOnClickListener(new View.OnClickListener() {
-            InputMethodManager inputMethodManager= (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            public void setInputMethodManager(InputMethodManager inputMethodManager) {
-                this.inputMethodManager = inputMethodManager;
-                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-            }
-
-            @Override
-            public void onClick(View v) {
-                listSongs.clear();
-                tvkeyword.setVisibility(View.VISIBLE);
-
-                String keyword= keywordSearch.getText().toString();
-                String url= "http://192.168.43.8/api/search/"+keyword;
-                Ion.with(SearchActivity.this)
-                        .load(url)
-                        .asJsonArray()
-                        .setCallback(new FutureCallback<JsonArray>() {
-                            @Override
-                            public void onCompleted(Exception e, JsonArray result) {
-                                if (result.size()==0){
-                                    noresult.setVisibility(View.VISIBLE);
-                                }
-                                else {
-                                    tvkeyword.setText("Kết quả tìm kiếm: "+result.size()+" bài hát");
-                                    noresult.setVisibility(View.GONE);
-                                    for (int i=0; i<result.size(); i++){
-                                        JsonObject object= result.get(i).getAsJsonObject();
-                                        ListSong listSong= new ListSong();
-                                        listSong.setUrlSong(object.get("LinkSong").getAsString());
-                                        listSong.setImageSong(object.get("ImageSong").getAsString());
-                                        listSong.setNameSong(object.get("NameSong").getAsString());
-                                        listSong.setNameSinger(object.get("NameSinger").getAsString());
-                                        listSong.setNumberLove(object.get("Love").getAsString());
-                                        listSongs.add(listSong);
-                                    }
-                                    adapterListMp3= new ListMp3Adapter(SearchActivity.this, listSongs);
-                                    recyclerViewSearch.setAdapter(adapterListMp3);
-                                }
+        btnsearch.setOnClickListener(v -> {
+            listSongs.clear();
+            tvkeyword.setVisibility(View.VISIBLE);
+            String keyword= keywordSearch.getText().toString();
+            String url= constant.urlSearch+keyword;
+            Ion.with(SearchActivity.this)
+                    .load(url)
+                    .asJsonArray()
+                    .setCallback(new FutureCallback<JsonArray>() {
+                        @Override
+                        public void onCompleted(Exception e, JsonArray result) {
+                            if (result.size()==0){
+                                noresult.setVisibility(View.VISIBLE);
                             }
-                        });
+                            else {
+                                tvkeyword.setText("Kết quả tìm kiếm: "+result.size()+" bài hát");
+                                noresult.setVisibility(View.GONE);
+                                for (int i=0; i<result.size(); i++){
+                                    JsonObject object= result.get(i).getAsJsonObject();
+                                    ListSong listSong= new ListSong();
+                                    listSong.setUrlSong(object.get("LinkSong").getAsString());
+                                    listSong.setImageSong(object.get("ImageSong").getAsString());
+                                    listSong.setNameSong(object.get("NameSong").getAsString());
+                                    listSong.setNameSinger(object.get("NameSinger").getAsString());
+                                    listSong.setNumberLove(object.get("Love").getAsString());
+                                    listSongs.add(listSong);
+                                }
+                                adapterListMp3= new ListMp3Adapter(SearchActivity.this, listSongs);
+                                recyclerViewSearch.setAdapter(adapterListMp3);
+                            }
+                        }
+                    });
 
-            }
         });
 
     }

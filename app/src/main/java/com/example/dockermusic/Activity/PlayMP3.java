@@ -205,8 +205,7 @@ public class PlayMP3 extends AppCompatActivity {
             //event click love music
 
             btnlove.setOnClickListener(v -> {
-                String url= "http://192.168.43.8/api/love/"+idsong;
-                Toast.makeText(this, ""+idsong, Toast.LENGTH_SHORT).show();
+                String url= constant.urlLove+idsong;
                 Ion.with(PlayMP3.this)
                         .load(url)
                         .asJsonArray()

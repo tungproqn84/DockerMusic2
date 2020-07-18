@@ -56,7 +56,6 @@ public class Homepage extends AppCompatActivity {
         setContentView(R.layout.layout_home);
 
         banner= findViewById(R.id.slideshow);
-
         listBanners= new ArrayList<>();
         bannerAdapter= new BannerAdapter(listBanners, Homepage.this);
 //        getbanner();
@@ -71,7 +70,7 @@ public class Homepage extends AppCompatActivity {
         recyclerViewSong.setLayoutManager(layoutManager);
         adapterListMp3= new ListMp3Adapter(this, listSongs);
         recyclerViewSong.setAdapter(adapterListMp3);
-        urlSong= "http://192.168.43.8/api/songhome";
+        urlSong= constant.urlSongHome;
         listmp3(urlSong);
         //album hot
         recyclerViewAlbum= findViewById(R.id.recyclerAblumHot);
@@ -80,7 +79,7 @@ public class Homepage extends AppCompatActivity {
         recyclerViewAlbum.setLayoutManager(layoutManager1);
         albumAdapter= new AlbumAdapter(this, listAlbums);
         recyclerViewAlbum.setAdapter(albumAdapter);
-        urlAlbum= "http://192.168.43.8/api/albumhome";
+        urlAlbum= constant.urlAlbumHome;
         listAlbum(urlAlbum);
         //category hot
         recyclerViewCategory= findViewById(R.id.recyclerCategoryHot);
@@ -89,7 +88,7 @@ public class Homepage extends AppCompatActivity {
         recyclerViewCategory.setLayoutManager(layoutManager2);
         categoryAdapter= new CategoryAdapter(listCategories, Homepage.this);
         recyclerViewCategory.setAdapter(categoryAdapter);
-        urlCategory="http://192.168.43.8/api/categoryhome";
+        urlCategory=constant.urlCategoryHome;
         listCategory(urlCategory);
 
         //
@@ -180,8 +179,6 @@ public class Homepage extends AppCompatActivity {
                                 listCategory.setNameCategory(object.get("NameCategory").getAsString());
                                 listCategory.setImageCategory(object.get("ImageCategory").getAsString());
                                 listCategories.add(listCategory);
-
-                                Log.d("sssss",""+object.get("NameCategory").getAsString());
                             }
                             categoryAdapter.notifyDataSetChanged();
                         }catch (Exception ex){
@@ -212,13 +209,13 @@ public class Homepage extends AppCompatActivity {
                         tvCategory.setVisibility(View.VISIBLE);
                         recyclerViewCategory.setVisibility(View.VISIBLE);
 
-                        urlSong= "http://192.168.43.8/api/songhome";
+                        urlSong= constant.urlSongHome;
                         listmp3(urlSong);
 
-                        urlAlbum= "http://192.168.43.8/api/albumhome";
+                        urlAlbum= constant.urlAlbumHome;
                         listAlbum(urlAlbum);
 
-                        urlCategory="http://192.168.43.8/api/categoryhome";
+                        urlCategory= constant.urlCategoryHome;
                         listCategory(urlCategory);
                         break;
                     case 1:{
@@ -235,14 +232,8 @@ public class Homepage extends AppCompatActivity {
 
                         tvAlbum.setVisibility(View.VISIBLE);
                         recyclerViewAlbum.setVisibility(View.VISIBLE);
-                        urlAlbum= "http://192.168.43.8/api/album";
-
-
-
+                        urlAlbum= constant.urlAlbum;
                         listAlbum(urlAlbum);
-
-                        //xử lí click album item
-
                         break;
 
                     }
@@ -261,7 +252,7 @@ public class Homepage extends AppCompatActivity {
                         tvSong.setVisibility(View.VISIBLE);
                         recyclerViewSong.setVisibility(View.VISIBLE);
 
-                        urlSong= "http://192.168.43.8/api/listmp3";
+                        urlSong= constant.urlSong;
                         listmp3(urlSong);
                         break;
                     }
@@ -279,7 +270,7 @@ public class Homepage extends AppCompatActivity {
 
                         tvCategory.setVisibility(View.VISIBLE);
                         recyclerViewCategory.setVisibility(View.VISIBLE);
-                        String url= "http://192.168.43.8/api/category";
+                        String url= constant.urlCategory;
                         listCategory(url);
                         break;
                     }
